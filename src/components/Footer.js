@@ -12,10 +12,11 @@ import {
   useColorModeValue,
   Image,
 } from '@chakra-ui/react';
-import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { FaInstagram, FaTwitter, FaYoutube, FaFacebook } from 'react-icons/fa';
 import { BiMailSend } from 'react-icons/bi';
-import { ReactComponent as LogoSvg } from '../assets/LogoDaerah.svg';
+// import { ReactComponent as LogoSvg } from '../assets/LogoDaerah.svg';
 import LogoDaerah from '../assets/Logo_Daerah.png';
+import LogoDaerahKabProb from "../assets/Logo_Kabupaten_Probolinggo_-_Seal_of_Probolinggo_Regency.png"
 
 const Logo = props => {
   return (
@@ -26,7 +27,7 @@ const Logo = props => {
       {...props}
     >
       {/* SVG path data */}
-      <LogoSvg />
+      {/* <LogoSvg /> */}
     </svg>
   );
 };
@@ -76,7 +77,7 @@ export default function LargeWithNewsletter() {
           spacing={4}
         >
           <Box>
-            <Image src={LogoDaerah} boxSize={'200px'} fit={'contain'} />
+            <Image src={LogoDaerahKabProb} boxSize={'200px'} fit={'contain'} />
           </Box>
           <Stack spacing={3}>
             <Text fontSize={'lg'} fontWeight={'bold'}>
@@ -89,14 +90,14 @@ export default function LargeWithNewsletter() {
             <Text fontSize={'sm'}>Tel  : +62335846665</Text>
             <Text fontSize={'sm'}>Fax : +62335846665</Text>
             <Stack direction={'row'} spacing={6}>
-              <SocialButton label={'Twitter'} href={'#'}>
+              <SocialButton label={'Twitter'} href={'https://twitter.com/Infokabprob'}>
                 <FaTwitter />
               </SocialButton>
-              <SocialButton label={'YouTube'} href={'#'}>
+              <SocialButton label={'YouTube'} href={'https://www.youtube.com/channel/UCl1Skf0XEOJG0Ll_DBqRvMA'}>
                 <FaYoutube />
               </SocialButton>
-              <SocialButton label={'Instagram'} href={'#'}>
-                <FaInstagram />
+              <SocialButton label={'Facebook'} href={'https://www.facebook.com/infoprobolinggokab'}>
+                <FaFacebook />
               </SocialButton>
             </Stack>
           </Stack>

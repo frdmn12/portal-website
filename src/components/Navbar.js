@@ -121,7 +121,7 @@ const DesktopNav = () => {
                 as="a"
                 p={2}
                 href={navItem.href ?? '#'}
-                fontSize={'sm'}
+                fontSize={'xs'}
                 fontWeight={500}
                 color={linkColor}
                 _hover={{
@@ -318,6 +318,76 @@ const NAV_ITEMS = [
   {
     label: 'Kinerja',
     href: '#',
+    children: [
+      {
+        label: 'Kecamatan Besuk',
+        href: '#',
+      },
+      {
+        label: 'Kecamatan Bantaran',
+        href: '#',
+      },
+      {
+        label: 'Kecamatan Banyuanyar',
+        href: '#',
+      },
+      {
+        label: 'Kecamatan Dringu',
+        href: '#',
+      },
+      {
+        label: 'Kecamatan Gending',
+        href: '#',
+      },
+      {
+        label: 'Kecamatan Kraksaan',
+        href: '#',
+      },
+      // {
+      //   label: 'Kecamatan Krejengan',
+      //   href: '#',
+      // },
+      // {
+      //   label: 'Kecamatan Krucil',
+      //   href: '#',
+      // },
+      // {
+      //   label: 'Kecamatan Kuripan',
+      //   href: '#',
+      // },
+      // {
+      //   label: 'Kecamatan Kotanyar',
+      //   href: '#',
+      // },
+      // {
+      //   label: 'Kecamatan Leces',
+      //   href: '#',
+      // },
+      // {
+      //   label: 'Kecamatan Lumbang',
+      //   href: '#',
+      // },
+      // {
+      //   label: 'Kecamatan Maron',
+      //   href: '#',
+      // },
+      // {
+      //   label: 'Kecamatan Paiton',
+      //   href: '#',
+      // },
+      // {
+      //   label: 'Kecamatan Pajarakan',
+      //   href: '#',
+      // },
+      // {
+      //   label: 'Kecamatan Pakuniran',
+      //   href: '#',
+      // },
+      // {
+      //   label: 'Kecamatan Sumber',
+      //   href: '#',
+      // },
+    ]
   },
   {
     label: 'Wisata',
