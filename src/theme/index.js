@@ -4,7 +4,7 @@ const theme = extendTheme(
     {
         fonts : {
             heading : 'Montserrat',
-            body : 'Courier New'
+            body : 'Cormorant Garamond'
         },
         
     }
