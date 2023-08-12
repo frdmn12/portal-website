@@ -1,3 +1,7 @@
-import Navbar from './Navbar.js';
-import Footer from "./Footer.js"
-export { Navbar, Footer };
+import Navbar from "./Navbar";
+import Footer from "./Footer";
+
+export {
+    Navbar,
+    Footer
+}

@@ -5,21 +5,18 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import * as serviceWorker from './serviceWorker';
 import { ChakraProvider } from '@chakra-ui/react';
-import { extendTheme } from "@chakra-ui/react"
+import { BrowserRouter } from 'react-router-dom';
+import theme from './theme';
 
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
-const fontTheme = extendTheme({
-  heading : {
-    fontFamily : 'Montserrat'
-  }
-})
 
 root.render(
   <StrictMode>
-    <ChakraProvider >
-      <ColorModeScript />
-      <App />
+    <ChakraProvider theme={theme}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </ChakraProvider>
   </StrictMode>
 );

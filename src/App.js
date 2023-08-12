@@ -9,20 +9,19 @@ import {
 // import { Logo } from './Logo';
 import Navbar from './components/Navbar.js';
 import Footer from './components/Footer.js';
+import LandingPage from './views/LandingPage/index.js';
+import { Redirect, Route, Routes } from 'react-router-dom';
 
 import theme from './theme';
 
 function App() {
   return (
-    <ChakraProvider theme={theme}>
-      <Box textAlign="center" fontSize="xl">
-        <Grid minH="100vh">
-          <Navbar />
-          {/* <Footer /> */}
-        </Grid>
-      </Box>
-      <Footer/>
-    </ChakraProvider>
+    <div>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+      </Routes>
+    </div>
   );
 }
 

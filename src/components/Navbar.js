@@ -26,7 +26,7 @@ import {
 import { ColorModeSwitcher } from '../ColorModeSwitcher';
 import Logo from '../assets/LogoKabProb.png';
 
-function WithSubnavigation() {
+function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
@@ -399,4 +399,4 @@ const NAV_ITEMS = [
   },
 ];
 
-export default WithSubnavigation;
+export default Navbar;

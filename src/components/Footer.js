@@ -64,7 +64,7 @@ const ListHeader = ({ children }) => {
   );
 };
 
-export default function LargeWithNewsletter() {
+export default function Footer() {
   return (
     <Box
       bg={useColorModeValue('gray.50', 'gray.900')}
@@ -77,7 +77,7 @@ export default function LargeWithNewsletter() {
           spacing={4}
         >
           <Box>
-            <Image src={LogoDaerahKabProb} boxSize={'200px'} fit={'contain'} />
+            <Image src={LogoDaerahKabProb} boxSize={{ base: '100px', md: '200px' }} fit={'contain'} />
           </Box>
           <Stack spacing={3}>
             <Text fontSize={'lg'} fontWeight={'bold'}>
