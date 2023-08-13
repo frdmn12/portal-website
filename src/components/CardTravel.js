@@ -25,7 +25,7 @@ const CardTravel = ({ title, location, image }) => {
         transform: 'translateY(-5px)',
         transition: 'transform 0.3s',
       }}
-      m={{ lg : "0px", base: "2px" }}
+      m={{ lg : "0px", md : "1px",base: "2px" }}
     >
       <CardBody>
       </CardBody>
