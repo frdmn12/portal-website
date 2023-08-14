@@ -1,3 +1,27 @@
+## Definition
+
+Portal Website merupakan website yang berisi informasi dan berita dari sebuah kota atau kabupaten. Beberapa informasi yang ditampilkan dapat bermacam berita kesehatan, kemasyarakatan, pemerintahan ataupun informasi wisata didaerah tersebut. Website ini hadir dengan tampilan reponsive sehingga nantinnya dapat digunakan melalui dekstop atau mobile.
+
+## Tech
+
+Project ini dibangun menggunakan :
+
+- React JS App
+- Chakra UI (FrontEnd UI Library)
+
+## BackGround
+
+Project ini ditujukkan untuk meredesign / recreate portal website dari daerah <a href="https://probolinggokab.go.id/"> Kab.Probolinggo </a>
+
+## MockUp
+
+<div align="center" > 
+<img src="./src/assets/mockup/Display-Dekstop&Mobile.jpg"
+/>
+</div>
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -36,33 +60,3 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
