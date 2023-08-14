@@ -1,3 +1,12 @@
+import supports from "../assets/supports";
+import sup1 from "../assets/supports/image 5.png"
+import sup2 from "../assets/supports/image 6.png"
+import sup3 from "../assets/supports/image 7.png"
+import sup4 from "../assets/supports/image 8.png"
+import sup5 from "../assets/supports/image 9.png"
+import sup6 from "../assets/supports/image 10.png"
+import sup7 from "../assets/supports/image 11.png"
+
 export const TravelPlace = [
   {
     title: 'Gunung Argopuro',
@@ -54,3 +63,35 @@ export const TravelPlace = [
   },
   
 ];
+
+
+export const institutionSupports = [
+  {
+    title : "FKPS",
+    image : sup1,
+  },
+  {
+    title : "KOTAKU",
+    image : sup2,
+  },
+  {
+    title : "LPSE",
+    image : sup3,
+  },
+  {
+    title : "LHKPN",
+    image : sup4,
+  },
+  {
+    title : "JARINGAN DOKUMENTASI DAN INFORMASI HUKUM",
+    image : sup5,
+  },
+  {
+    title : "WBS",
+    image : sup6,
+  },
+  {
+    title : "LAPOR",
+    image : sup7,
+  },
+]

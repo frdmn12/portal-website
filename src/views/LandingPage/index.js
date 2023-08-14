@@ -4,6 +4,7 @@ import Footer from '../../components/Footer.js';
 import LatestNews from './components/LatestNews.js';
 import Travel from './components/Travel.js';
 import VideoPromo from './components/VideoPromo.js';
+import Supports from './components/Supports.js';
 // import {Navbar, Footer} from "./components/index.js"
 
 export default function LandingPage() {
@@ -14,6 +15,7 @@ export default function LandingPage() {
          <LatestNews />
         <Travel />
         <VideoPromo/>
+        <Supports/>
         <Footer /> 
       </Stack>
     </Flex>

@@ -47,6 +47,7 @@ const Travel = () => {
         p={15}
         // m={7}
         gap={5}
+        mb={{ lg: "50px" }}
       >
         {TravelPlace.map(e => {
           return (
