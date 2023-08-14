@@ -30,9 +30,9 @@ const Supports = () => {
           return (
             <Link href="youtube.com">
               <Box
-                m={5}
-                w={{ base : "120px",lg: "300px" }}
-                h={{ base : "60px",lg: "150px" }}
+                m={2}
+                w={{ base : "130px",lg: "300px" }}
+                h={{ base : "65px",lg: "150px" }}
                 border="3px solid black"
                 rounded="lg"
                 display="flex"
@@ -45,7 +45,7 @@ const Supports = () => {
                   src={e.image}
                   alt={'Youtube'}
                   objectFit="contain"
-                  w={{base: "35px", lg: "140px" }}
+                  w={{base: "50px", lg: "140px" }}
                 />
               </Box>
             </Link>

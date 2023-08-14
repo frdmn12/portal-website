@@ -50,7 +50,7 @@ const LatestNews = () => {
               m={3}
             />
             <CardHeader pb={0}>
-              <Badge colorScheme="green" fontSize="md" mb="2">
+              <Badge colorScheme="green" fontSize="md" mb="2" fontFamily="default">
                 12 / 08 / 2023
               </Badge>
               <Heading size={{ base : "sm" , lg : "md" }}>
@@ -84,7 +84,7 @@ const LatestNews = () => {
             m={{ base: "3" }}
           >
             <CardHeader pb={0}>
-              <Badge colorScheme="green" fontSize="md" mb="2">
+              <Badge colorScheme="green" fontSize="md" mb="2" fontFamily="default">
                 12 / 08 / 2023
               </Badge>
               <Heading size={{ base : "sm" , lg : "md" }}>
@@ -118,7 +118,7 @@ const LatestNews = () => {
             m={{ base: "3" }}
           >
             <CardHeader pb={0}>
-              <Badge colorScheme="green" fontSize="md" mb="2">
+              <Badge colorScheme="green" fontSize="md" mb="2" fontFamily="default">
                 11 / 08 / 2023
               </Badge>
               <Heading size={{ base : "sm" , lg : "md" }}>

@@ -16,7 +16,7 @@ Project ini ditujukkan untuk meredesign / recreate portal website dari daerah <a
 ## MockUp
 
 <div align="center" > 
-<img src="./src/assets/mockup/Display-Dekstop&Mobile.jpg"
+<img src="./src/assets/mockup/Mockup-2.jpg"
 />
 </div>
 
