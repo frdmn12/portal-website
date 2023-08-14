@@ -28,7 +28,7 @@ const Supports = () => {
       <Flex flexDirection="row" p={"45px"} justifyContent="center" alignContent={"center"} flexWrap="wrap">
         {institutionSupports.map((e, index) => {
           return (
-            <Link href="youtube.com">
+            <Link href="https://probolinggokab.go.id/">
               <Box
                 m={2}
                 w={{ base : "130px",lg: "300px" }}
@@ -43,7 +43,7 @@ const Supports = () => {
               >
                 <Image
                   src={e.image}
-                  alt={'Youtube'}
+                  alt={e.title}
                   objectFit="contain"
                   w={{base: "50px", lg: "140px" }}
                 />
