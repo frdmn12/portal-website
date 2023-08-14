@@ -56,7 +56,6 @@ const Travel = () => {
                 title={e.title}
                 image={e.image}
                 location={e.location}
-                
               />
             </GridItem>
           );
