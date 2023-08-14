@@ -7,20 +7,21 @@ const VideoPromo = () => {
       fontFamily="heading"
       alignItems="center"
       justifyContent="center"
-      minHeight="100vh"
+      m={20}
+      // minHeight="100vh"
     >
       <Box
         as="iframe"
         // src="https://www.youtube.com/embed/wI2vqXsjsIo"
         src="https://youtube.com/embed/nxGOfXS_qkM"
-        width={{ base: '450px',md: "500px" ,lg: '900px' }}
+        width={{ base: '300px',md: "500px" ,lg: '900px' }}
         sx={{
           aspectRatio: '16/9',
         }}
       />
       <Text
-        paddingX="250px"
-        m="30px"
+        // paddingX="250px"
+        m="30px" 
         textAlign={'center'}
         fontSize={{ base: 'sm', lg: 'lg' }}
       >

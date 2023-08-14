@@ -18,7 +18,7 @@ const Travel = () => {
     <Flex
       flexDirection="column"
       alignItems="center"
-      p={25}
+      p={{base: "25px", lg :"25" }}
       bg={useColorModeValue('gray.300', 'blue.900')}
       //   borderTopRadius="20px"
     >
@@ -27,8 +27,9 @@ const Travel = () => {
         fontFamily={'heading'}
         fontSize={{ base: '25px', md: '35px', lg: '45px' }}
         fontWeight={700}
-        mb={{ base: '5px', lg: '10px' }}
-        ml={{ base: '5px', lg: '10px' }}
+        mb={{ base: '5px',  md : "7px",lg: '10px' }}
+        mt={{ base: '15px', md : "18px", lg: '20px' }}
+        ml={{ base: '5px',  md : "7px",lg: '10px' }}
         color={useColorModeValue('blue.700', 'gray.100')}
       >
         Wisata
@@ -44,7 +45,7 @@ const Travel = () => {
       <Grid
         templateColumns={{ base: 'repeat(2,1fr)', lg: 'repeat(3, 1fr)' }}
         p={15}
-        m={7}
+        // m={7}
         gap={5}
       >
         {TravelPlace.map(e => {

@@ -9,12 +9,12 @@ import VideoPromo from './components/VideoPromo.js';
 export default function LandingPage() {
   return (
     <Flex flexDirection={'column'}>
-      <Stack>
+      <Stack spacing={7}>
         <Hero />
-        <LatestNews />
+         <LatestNews />
         <Travel />
         <VideoPromo/>
-        <Footer />
+        <Footer /> 
       </Stack>
     </Flex>
   );

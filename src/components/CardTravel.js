@@ -19,8 +19,8 @@ const CardTravel = ({ title, location, image }) => {
     <Card
       bg={`url(${image})`}
       backgroundSize="cover"
-      w={{ base : "200px",lg : "300px" }}
-      h={{ base : "200px",lg : "300px" }}
+      w={{ base : "150px",lg : "300px" }}
+      h={{ base : "150px",lg : "300px" }}
       _hover={{
         transform: 'translateY(-5px)',
         transition: 'transform 0.3s',
