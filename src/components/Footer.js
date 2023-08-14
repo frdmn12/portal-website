@@ -11,12 +11,13 @@ import {
   IconButton,
   useColorModeValue,
   Image,
+  Link,
 } from '@chakra-ui/react';
 import { FaInstagram, FaTwitter, FaYoutube, FaFacebook } from 'react-icons/fa';
 import { BiMailSend } from 'react-icons/bi';
 // import { ReactComponent as LogoSvg } from '../assets/LogoDaerah.svg';
 import LogoDaerah from '../assets/Logo_Daerah.png';
-import LogoDaerahKabProb from "../assets/Logo_Kabupaten_Probolinggo_-_Seal_of_Probolinggo_Regency.png"
+import LogoDaerahKabProb from '../assets/Logo_Kabupaten_Probolinggo_-_Seal_of_Probolinggo_Regency.png';
 
 const Logo = props => {
   return (
@@ -77,7 +78,11 @@ export default function Footer() {
           spacing={4}
         >
           <Box>
-            <Image src={LogoDaerahKabProb} boxSize={{ base: '100px', md: '200px' }} fit={'contain'} />
+            <Image
+              src={LogoDaerahKabProb}
+              boxSize={{ base: '100px', md: '200px' }}
+              fit={'contain'}
+            />
           </Box>
           <Stack spacing={3}>
             <Text fontSize={'lg'} fontWeight={'bold'}>
@@ -87,16 +92,27 @@ export default function Footer() {
               Dinas Kominfo Jalan: Raya Panglima Sudirman No 134 Kota Kraksaan
             </Text>
             <Text fontSize={'sm'}>© 2023 Kab Probolinggo</Text>
-            <Text fontSize={'sm'}>Tel  : +62335846665</Text>
+            <Text fontSize={'sm'}>Tel : +62335846665</Text>
             <Text fontSize={'sm'}>Fax : +62335846665</Text>
             <Stack direction={'row'} spacing={6}>
-              <SocialButton label={'Twitter'} href={'https://twitter.com/Infokabprob'}>
+              <SocialButton
+                label={'Twitter'}
+                href={'https://twitter.com/Infokabprob'}
+              >
                 <FaTwitter />
               </SocialButton>
-              <SocialButton label={'YouTube'} href={'https://www.youtube.com/channel/UCl1Skf0XEOJG0Ll_DBqRvMA'}>
+              <SocialButton
+                label={'YouTube'}
+                href={
+                  'https://www.youtube.com/channel/UCl1Skf0XEOJG0Ll_DBqRvMA'
+                }
+              >
                 <FaYoutube />
               </SocialButton>
-              <SocialButton label={'Facebook'} href={'https://www.facebook.com/infoprobolinggokab'}>
+              <SocialButton
+                label={'Facebook'}
+                href={'https://www.facebook.com/infoprobolinggokab'}
+              >
                 <FaFacebook />
               </SocialButton>
             </Stack>
@@ -158,6 +174,11 @@ export default function Footer() {
                 icon={<BiMailSend />}
               />
             </Stack>
+            <Text fontWeight="700" marginTop="45px">
+              Made By
+              <Link href="https://github.com/frdmn12" ml={1}>@frdmn12</Link>
+              😸
+            </Text>
           </Stack>
         </SimpleGrid>
       </Container>
