@@ -1,27 +1,21 @@
 import React from 'react';
-import {
-  ChakraProvider,
-  Box,
-  Grid,
-  // theme,
-} from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 // import { ColorModeSwitcher } from './ColorModeSwitcher';
 // import { Logo } from './Logo';
 import Navbar from './components/Navbar.js';
-import Footer from './components/Footer.js';
 import LandingPage from './views/LandingPage/index.js';
 import { Redirect, Route, Routes } from 'react-router-dom';
-
-import theme from './theme';
+import NewsPage from './views/NewsPage/index.js';
 
 function App() {
   return (
-    <div>
+    <Box>
       <Navbar />
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path="/news" element={<NewsPage />} />
       </Routes>
-    </div>
+    </Box>
   );
 }
 

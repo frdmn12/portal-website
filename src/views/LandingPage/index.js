@@ -1,4 +1,4 @@
-import { Flex, Stack } from '@chakra-ui/react';
+import { Flex, Stack, Box } from '@chakra-ui/react';
 import Hero from './components/Hero.js';
 import Footer from '../../components/Footer.js';
 import LatestNews from './components/LatestNews.js';
@@ -12,11 +12,13 @@ export default function LandingPage() {
     <Flex flexDirection={'column'}>
       <Stack spacing={7}>
         <Hero />
-         <LatestNews />
-        <Travel />
-        <VideoPromo/>
-        <Supports/>
-        <Footer /> 
+        <LatestNews />
+        <Box id='wisata'>
+          <Travel />
+        </Box>
+        <VideoPromo />
+        <Supports />
+        <Footer />
       </Stack>
     </Flex>
   );

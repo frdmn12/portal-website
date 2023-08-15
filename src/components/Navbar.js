@@ -26,7 +26,10 @@ import {
 import { ColorModeSwitcher } from '../ColorModeSwitcher';
 import Logo from '../assets/LogoKabProb.png';
 
-function Navbar() {
+function Navbar(props) {
+  const {
+    linkWisata,
+  } = props
   const { isOpen, onToggle } = useDisclosure();
 
   return (
@@ -391,11 +394,11 @@ const NAV_ITEMS = [
   },
   {
     label: 'Wisata',
-    href: '#',
+    href: '#wisata',
   },
   {
     label: 'Berita',
-    href: '#',
+    href: '/news',
   },
 ];
 
