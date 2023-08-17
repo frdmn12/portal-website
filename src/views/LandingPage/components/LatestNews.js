@@ -20,7 +20,7 @@ const LatestNews = () => {
     <Flex flexDirection={'column'} p={{ lg: '40px' }} m={{ lg: '5px' }}>
       <Text
         fontFamily={'heading'}
-        fontSize={{ base: '25px', md: '35px', lg: '45px' }}
+        fontSize={{ base: '25px', md: '35px', lg: '40px' }}
         fontWeight={700}
         mb={{base: "5px", lg: '10px' }}
         ml={{base: "5px", lg: '10px' }}
