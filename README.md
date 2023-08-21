@@ -2,7 +2,7 @@
 
 Portal Website merupakan website yang berisi informasi dan berita dari sebuah kota atau kabupaten. Beberapa informasi yang ditampilkan dapat bermacam macam seperti berita kesehatan, kemasyarakatan, pemerintahan ataupun informasi wisata didaerah tersebut. Website ini hadir dengan tampilan reponsive sehingga nantinnya website dapat digunakan dan diakses melalui dekstop atau mobile.
 
-## Tech
+## Tech Use
 
 Project ini dibangun menggunakan :
 
