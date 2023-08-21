@@ -7,13 +7,26 @@ import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
-  BreadcrumbSeparator,
-  Grid,
-  GridItem,
+  // BreadcrumbSeparator,
+  // Grid,
+  // GridItem,
+  ButtonGroup,
+  Button,
+  // Card,
+  Link,
 } from '@chakra-ui/react';
 import LatestNews from '../LandingPage/components/LatestNews';
 import CardTravel from '../../components/CardTravel';
 import CardNews from '../../components/CardNews.js';
+import SmallCardNews from '../../components/SmallCardNews';
+import {
+  kesehatanNews,
+  pemerintahanNews,
+  pendidikanNews,
+  smallKesehatanNews,
+  smallPemerintahanNews,
+  smallPendidikanNews,
+} from '../../variables/general';
 // import CardNews from '../../components/CardNews';
 
 export default function NewsPage() {
@@ -31,17 +44,110 @@ export default function NewsPage() {
           </BreadcrumbItem>
         </Breadcrumb>
       </Box>
-      <Divider my={15} size={'lg'} />
-      <Grid templateColumns="repeat(2, 1fr)" gap={3}>
-        <GridItem colSpan={1} >
-          <Flex flexWrap="wrap">
-            <CardNews />
-            <CardNews />
-            <CardNews />
-            <CardNews />
+      {/* <Divider mt={2} size={'lg'} /> */}
+      <Box my={2}>
+        <ButtonGroup colorScheme="teal" display={{ lg: 'table-row' }}>
+          <Link href="#pemerintahan">
+            <Button fontFamily={'default'} m={2}>
+              Pemerintahan
+            </Button>
+          </Link>
+          <Link href="#pendidikan">
+            <Button fontFamily={'default'} m={2}>
+              Pendidikan
+            </Button>
+          </Link>
+          <Link href="#kesehatan">
+            <Button fontFamily={'default'} m={2}>
+              Kesehatan
+            </Button>
+          </Link>
+        </ButtonGroup>
+      </Box>
+      <Box my={15} id="pemerintahan">
+        <Heading size={'lg'}>Pemerintahan</Heading>
+        <Divider mt={1} />
+        <Flex gap={5} mt={5} flexWrap={{ base: 'wrap', lg: 'nowrap' }}>
+          {pemerintahanNews.map(e => {
+            return (
+              <CardNews
+                title={e.title}
+                image={e.image}
+                date={e.date}
+                caption={e.caption}
+              />
+            );
+          })}
+          <Flex
+            flexDirection={{ base: 'row', lg: 'column' }}
+            flexWrap={{ base: 'wrap', lg: 'nowrap' }}
+            gap={5}
+            justifyContent="space-between"
+          >
+            {smallPemerintahanNews.map(e => {
+              return (
+                <SmallCardNews title={e.title} image={e.image} date={e.date} />
+              );
+            })}
           </Flex>
-        </GridItem>
-      </Grid>
+        </Flex>
+      </Box>
+      <Box my={15} id="pendidikan">
+        <Heading size={'lg'}>Pendidikan</Heading>
+        <Divider mt={1} />
+        <Flex gap={5} mt={5} flexWrap={{ base: 'wrap', lg: 'nowrap' }}>
+          {pendidikanNews.map(e => {
+            return (
+              <CardNews
+                title={e.title}
+                image={e.image}
+                date={e.date}
+                caption={e.caption}
+              />
+            );
+          })}
+          <Flex
+            flexDirection={{ base: 'row', lg: 'column' }}
+            flexWrap={{ base: 'wrap', lg: 'nowrap' }}
+            gap={5}
+            justifyContent="space-between"
+          >
+            {smallPendidikanNews.map(e => {
+              return (
+                <SmallCardNews title={e.title} image={e.image} date={e.date} />
+              );
+            })}
+          </Flex>
+        </Flex>
+      </Box>
+      <Box my={15} id="kesehatan">
+        <Heading size={'lg'}>Kesehatan</Heading>
+        <Divider mt={1} />
+        <Flex gap={5} mt={5} flexWrap={{ base: 'wrap', lg: 'nowrap' }}>
+          {kesehatanNews.map(e => {
+            return (
+              <CardNews
+                title={e.title}
+                image={e.image}
+                date={e.date}
+                caption={e.caption}
+              />
+            );
+          })}
+          <Flex
+            flexDirection={{ base: 'row', lg: 'column' }}
+            flexWrap={{ base: 'wrap', lg: 'nowrap' }}
+            gap={5}
+            justifyContent="space-between"
+          >
+            {smallKesehatanNews.map(e => {
+              return (
+                <SmallCardNews title={e.title} image={e.image} date={e.date} />
+              );
+            })}
+          </Flex>
+        </Flex>
+      </Box>
     </Flex>
   );
 }

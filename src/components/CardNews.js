@@ -5,52 +5,41 @@ import {
   CardBody,
   Badge,
   Heading,
-  Button,
-  CardFooter,
   Image
 } from '@chakra-ui/react';
 import Image404 from "../assets/Image404.png"
 
-export default function CardNews() {
+export default function CardNews({title, image,caption, date}) {
   return (
     <Card
-      size="sm"
+      size="md"
       _hover={{
         transform: 'translateY(-5px)',
         transition: 'transform 0.3s',
       }}
-      w={"300px"}
+      w={"400px"}
     //   h="100%"
-      m={{ base: '3' }}
+      // m={{ base: '1' }}
     >
         <Image
-        src={Image404}
+        src={image}
         alt='ImageNews'
+        objectFit="cover"
+        // maxW="300px"
         />
       <CardHeader pb={0}>
-        <Badge colorScheme="green" fontSize="md" mb="2" fontFamily="default">
-          11 / 08 / 2023
+        <Badge colorScheme="green" fontSize="xs" mb="2" fontFamily="default">
+          {date}
         </Badge>
         <Heading size={{ base: 'sm', lg: 'sm' }}>
-          Teken Nota Kesepakatan KUA-PPAS P-APBD TA 2023
+          {title}
         </Heading>
       </CardHeader>
-      <CardBody fontFamily="body" pb={0}>
-        <Text fontSize={{ lg: 'sm', base: 'xs' }}>
-          Setelah melalui tahapan pembahasan oleh Tim Anggaran Pemerintah Daerah
-          (TAPD) dan Badan Anggaran (Banggar) DPRD Kabupaten Probolinggo, Jum’at
-          (11/8/2023) dilakukan penandatanganan (teken) Nota Kesepakatan Bersama
-          antara Pemkab Probolinggo dengan DPRD Kabupaten Probolinggo Tentang
-          Kebijakan Umum Anggaran (KUA) dan Prioritas serta Plafon Anggaran
-          Sementara (PPAS) Perubahan Anggaran Pendapatan dan Belanja Daerah
-          (P-APBD) Kabupaten Probolinggo Tahun Anggaran 2023.
+      <CardBody fontFamily="body" pb={2}>
+        <Text fontSize={{ lg: 'sm', base: 'xs' }} numberOfLine={1} >
+          {caption} 
         </Text>
       </CardBody>
-      <CardFooter>
-        <Button fontFamily={'heading'} colorScheme="teal">
-          Kesehatan
-        </Button>
-      </CardFooter>
     </Card>
   );
 }

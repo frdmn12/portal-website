@@ -4,8 +4,9 @@ import { Box } from '@chakra-ui/react';
 // import { Logo } from './Logo';
 import Navbar from './components/Navbar.js';
 import LandingPage from './views/LandingPage/index.js';
-import { Redirect, Route, Routes } from 'react-router-dom';
+import {  Route, Routes } from 'react-router-dom';
 import NewsPage from './views/NewsPage/index.js';
+import Footer from './components/Footer.js';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/news" element={<NewsPage />} />
       </Routes>
+      <Footer/>
     </Box>
   );
 }

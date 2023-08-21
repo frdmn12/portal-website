@@ -18,7 +18,6 @@ export default function LandingPage() {
         </Box>
         <VideoPromo />
         <Supports />
-        <Footer />
       </Stack>
     </Flex>
   );

@@ -1,7 +1,7 @@
 import {
   Flex,
   Text,
-  Link,
+  // Link,
   Grid,
   GridItem,
   Card,
@@ -12,7 +12,7 @@ import {
   Badge,
   CardFooter,
   Button,
-  Box,
+  // Box,
 } from '@chakra-ui/react';
 
 const LatestNews = () => {
@@ -126,7 +126,7 @@ const LatestNews = () => {
               </Heading>
             </CardHeader>
             <CardBody fontFamily="body" pb={0}>
-              <Text fontSize={{ lg : "lg", base : "sm" }} >
+              <Text fontSize={{ lg : "lg", base : "sm" }}  >
                 Setelah melalui tahapan pembahasan oleh Tim Anggaran Pemerintah
                 Daerah (TAPD) dan Badan Anggaran (Banggar) DPRD Kabupaten
                 Probolinggo, Jum’at (11/8/2023) dilakukan penandatanganan
