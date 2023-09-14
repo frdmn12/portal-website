@@ -44,7 +44,6 @@ export default function NewsPage() {
           </BreadcrumbItem>
         </Breadcrumb>
       </Box>
-      {/* <Divider mt={2} size={'lg'} /> */}
       <Box my={2}>
         <ButtonGroup colorScheme="teal" display={{ lg: 'table-row' }}>
           <Link href="#pemerintahan">

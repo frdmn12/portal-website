@@ -68,7 +68,7 @@ const ListHeader = ({ children }) => {
 export default function Footer() {
   return (
     <Box
-      bg={useColorModeValue('gray.50', 'gray.900')}
+      bg={useColorModeValue('gray.100', '#1C395A')}
       color={useColorModeValue('gray.700', 'gray.200')}
       fontFamily={'heading'}
     >

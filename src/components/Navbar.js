@@ -303,12 +303,10 @@ const NAV_ITEMS = [
       },
       {
         label: 'Tahun Anggaran',
-        // subLabel : `Tahun 2022`,
         href: '#',
       },
       {
         label: 'Daftar Ruas Penanganan',
-        // subLabel : `Tahun 2022`,
         href: '#',
       },
       {
@@ -346,55 +344,11 @@ const NAV_ITEMS = [
         label: 'Kecamatan Kraksaan',
         href: '#',
       },
-      // {
-      //   label: 'Kecamatan Krejengan',
-      //   href: '#',
-      // },
-      // {
-      //   label: 'Kecamatan Krucil',
-      //   href: '#',
-      // },
-      // {
-      //   label: 'Kecamatan Kuripan',
-      //   href: '#',
-      // },
-      // {
-      //   label: 'Kecamatan Kotanyar',
-      //   href: '#',
-      // },
-      // {
-      //   label: 'Kecamatan Leces',
-      //   href: '#',
-      // },
-      // {
-      //   label: 'Kecamatan Lumbang',
-      //   href: '#',
-      // },
-      // {
-      //   label: 'Kecamatan Maron',
-      //   href: '#',
-      // },
-      // {
-      //   label: 'Kecamatan Paiton',
-      //   href: '#',
-      // },
-      // {
-      //   label: 'Kecamatan Pajarakan',
-      //   href: '#',
-      // },
-      // {
-      //   label: 'Kecamatan Pakuniran',
-      //   href: '#',
-      // },
-      // {
-      //   label: 'Kecamatan Sumber',
-      //   href: '#',
-      // },
     ]
   },
   {
     label: 'Wisata',
-    href: '#wisata',
+    href: '/#wisata',
   },
   {
     label: 'Berita',

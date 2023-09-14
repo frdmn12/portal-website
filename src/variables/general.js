@@ -52,8 +52,7 @@ export const TravelPlace = [
   },
   {
     title: 'Ranu Agung',
-    image:
-      'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fkawanus.com%2Fwp-content%2Fuploads%2F2022%2F08%2FDanau-Ranu-Agung-2-1.jpg&f=1&nofb=1&ipt=94ba3f2d88e607e29c020c4f99838b6bebc711159b40d526dfe92c80285264a9&ipo=images',
+    image: 'https://liburanyuk.co.id/wp-content/uploads/2021/11/@alinadamayanti-1024x768.jpg',
     location: 'https://goo.gl/maps/WstuT6VFQHY4yrTz8',
   },
   {
