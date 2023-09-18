@@ -123,7 +123,7 @@ const DesktopNav = () => {
               <Box
                 as="a"
                 p={2}
-                href={navItem.href ?? '#'}
+                href={navItem.href ?? navItem.parenHref}
                 fontSize={'xs'}
                 fontWeight={500}
                 color={linkColor}
@@ -266,10 +266,11 @@ const MobileNavItem = ({ label, children, href }) => {
 const NAV_ITEMS = [
   {
     label: 'Profil',
+    parenHref: '/profil',
     children: [
       {
         label: 'Data Wilayah',
-        href: '#',
+        href: '/profil/#datawilayah',
       },
       {
         label: 'Visi Misi',
@@ -291,6 +292,7 @@ const NAV_ITEMS = [
   },
   {
     label: 'Prim',
+    parenHref: '/prim',
     children: [
       {
         label: 'Data Fisik Konstruksi 2022',
@@ -318,6 +320,7 @@ const NAV_ITEMS = [
 
   {
     label: 'Kinerja',
+    parenHref: '/kinerja',
     href: '#',
     children: [
       {
