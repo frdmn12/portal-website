@@ -14,8 +14,6 @@ export default function ProfilPage() {
       </Box>
       <Flex direction="column">
             <DataWilayah/>
-            <DataWilayah/>
-            <DataWilayah/>
       </Flex>
     </Flex>
   );
