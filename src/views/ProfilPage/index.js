@@ -1,20 +1,46 @@
-import { Box, Flex, Heading, Stack, Text } from '@chakra-ui/react';
+import { Box, Divider, Flex, Heading, Text, Link } from '@chakra-ui/react';
 import DataWilayah from './components/DataWilayah';
+import VisiMisi from './components/VisiMisi';
+import LogoKabupaten from './components/LogoKabupaten';
+import KondisiGeo from './components/KondisiGeo';
 
 export default function ProfilPage() {
   return (
-    <Flex m="30px 10px" gap={50}>
-      <Box textAlign="right" fontFamily="heading" w="500px">
+    <Flex m="30px 10px" gap={50} flexDirection={{ base: 'column', lg: 'row' }}>
+      <Box textAlign={{ base: 'left', lg: 'right' }} fontFamily="heading">
         <Heading mb={3}>Profil Kabupaten Probolinggo</Heading>
-        <Text decoration="underline">Data Wilayah</Text>
-        <Text decoration="underline">Visi Misi</Text>
-        <Text decoration="underline">Logo Kabupaten</Text>
-        <Text decoration="underline">Kondisi Geografis</Text>
-        <Text decoration="underline">Daftar Nama Kepala SKPD</Text>
+        <Link href="#datawilayah">
+          <Text decoration="underline">Data Wilayah</Text>
+        </Link>
+        <Link href="#visimisi">
+          <Text decoration="underline">Visi Misi</Text>
+        </Link>
+        <Link href="#logokabupaten">
+          <Text decoration="underline">Logo Kabupaten</Text>
+        </Link>
+        <Link href="#kondisigeografis">
+          <Text decoration="underline">Kondisi Geografis</Text>
+        </Link>
       </Box>
-      <Flex direction="column">
-            <DataWilayah/>
-      </Flex>
+      <Box>
+        <Flex flexDirection="column" gap={8}>
+          <Box id="datawilayah">
+            <DataWilayah id="datawilayah" />
+          </Box>
+          <Box id="visimisi">
+            <Divider />
+            <VisiMisi />
+          </Box>
+          <Box id="logokabupaten">
+            <Divider />
+            <LogoKabupaten />
+          </Box>
+          <Box id="kondisigeografis">
+            <Divider />
+            <KondisiGeo />
+          </Box>
+        </Flex>
+      </Box>
     </Flex>
   );
 }

@@ -274,19 +274,15 @@ const NAV_ITEMS = [
       },
       {
         label: 'Visi Misi',
-        href: '#',
+        href: 'profil/#visimisi',
       },
       {
         label: 'Logo Kabupaten',
-        href: '#',
+        href: 'profil/#logokabupaten',
       },
       {
         label: 'Kondisi Geografis',
-        href: '#',
-      },
-      {
-        label: 'Daftar Nama Kepala SKPD',
-        href: '#',
+        href: 'profil/#kondisigeografis',
       },
     ],
   },
