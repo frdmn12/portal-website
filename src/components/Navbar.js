@@ -274,15 +274,15 @@ const NAV_ITEMS = [
       },
       {
         label: 'Visi Misi',
-        href: 'profil/#visimisi',
+        href: '/profil/#visimisi',
       },
       {
         label: 'Logo Kabupaten',
-        href: 'profil/#logokabupaten',
+        href: '/profil/#logokabupaten',
       },
       {
         label: 'Kondisi Geografis',
-        href: 'profil/#kondisigeografis',
+        href: '/profil/#kondisigeografis',
       },
     ],
   },
