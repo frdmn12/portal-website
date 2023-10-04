@@ -8,7 +8,7 @@ export default function PageNotFound() {
       fontFamily="heading"
       justifyContent="center"
       alignItems="center"
-      h="80vh"
+    my={10}
       textAlign="center"
     >
       <Box>
