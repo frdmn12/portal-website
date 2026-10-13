@@ -12,6 +12,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 import CoverImage from '../../../components/CoverImage';
+import SampleNewsNotice from '../../../components/SampleNewsNotice';
 import { latestNews } from '../../../variables/general';
 
 const LatestNews = () => {
@@ -23,11 +24,12 @@ const LatestNews = () => {
         fontFamily="heading"
         fontSize={{ base: '25px', md: '35px', lg: '40px' }}
         fontWeight={700}
-        mb={{ base: 4, lg: 6 }}
+        mb={2}
         color="#4F7BA6"
       >
         Berita Terbaru
       </Heading>
+      <SampleNewsNotice mb={{ base: 4, lg: 6 }} />
       <Grid
         data-stagger="up"
         templateColumns={{ base: '1fr', lg: 'repeat(2, 1fr)' }}

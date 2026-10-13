@@ -13,6 +13,7 @@ import {
 } from '@chakra-ui/react';
 import CardNews from '../../components/CardNews.js';
 import SmallCardNews from '../../components/SmallCardNews';
+import SampleNewsNotice from '../../components/SampleNewsNotice';
 import {
   kesehatanNews,
   pemerintahanNews,
@@ -108,6 +109,7 @@ export default function NewsPage() {
             </BreadcrumbLink>
           </BreadcrumbItem>
         </Breadcrumb>
+        <SampleNewsNotice mt={3} />
       </Box>
       <Flex data-stagger="zoom" gap={3} wrap="wrap" my={5}>
         {SECTIONS.map(section => (
