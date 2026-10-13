@@ -1,9 +1,10 @@
+import { forwardRef, useEffect, useLayoutEffect, useRef } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import {
   Box,
   Flex,
   Text,
   IconButton,
-  // Button,
   Stack,
   Collapse,
   Icon,
@@ -11,10 +12,8 @@ import {
   PopoverTrigger,
   PopoverContent,
   useColorModeValue,
-  useBreakpointValue,
   useDisclosure,
   Image,
-  // Center,
   Link,
 } from '@chakra-ui/react';
 import {
@@ -25,24 +24,109 @@ import {
 } from '@chakra-ui/icons';
 import { ColorModeSwitcher } from '../ColorModeSwitcher';
 import Logo from '../assets/LogoKabProb.png';
+import { gsap, MOTION_OK } from '../animations/gsap';
 
-function Navbar(props) {
-  const {
-    linkWisata,
-  } = props
-  const { isOpen, onToggle } = useDisclosure();
+// Internal paths go through React Router (no full reload, so page transitions
+// and scroll handling keep working); anything else is a plain anchor. "#"
+// entries are placeholders for pages that do not exist yet.
+const NavLink = forwardRef(
+  ({ href = '#', onNavigate, children, ...rest }, ref) => {
+    if (href.startsWith('/')) {
+      return (
+        <Box ref={ref} as={RouterLink} to={href} onClick={onNavigate} {...rest}>
+          {children}
+        </Box>
+      );
+    }
+    return (
+      <Box
+        ref={ref}
+        as="a"
+        href={href}
+        onClick={e => {
+          if (href === '#') e.preventDefault();
+          if (onNavigate) onNavigate();
+        }}
+        {...rest}
+      >
+        {children}
+      </Box>
+    );
+  }
+);
+
+function Navbar() {
+  const { isOpen, onToggle, onClose } = useDisclosure();
+  const rootRef = useRef(null);
+  const mobileRef = useRef(null);
+
+  const bg = useColorModeValue('white', '#1C395A');
+  const color = useColorModeValue('gray.600', 'white');
+  const borderColor = useColorModeValue('gray.200', 'gray.900');
+
+  // Entrance: the bar drops in, then the desktop links follow one by one.
+  useLayoutEffect(() => {
+    const mm = gsap.matchMedia();
+    mm.add(
+      MOTION_OK,
+      () => {
+        gsap
+          .timeline()
+          .from('[data-nav-bar]', {
+            yPercent: -100,
+            opacity: 0,
+            duration: 0.7,
+            clearProps: 'transform,opacity',
+          })
+          .from(
+            '[data-nav-item]',
+            {
+              y: -14,
+              opacity: 0,
+              duration: 0.5,
+              stagger: 0.07,
+              clearProps: 'transform,opacity',
+            },
+            '-=0.3'
+          );
+      },
+      rootRef
+    );
+    return () => mm.revert();
+  }, []);
+
+  // The mobile links slide in one after another each time the menu opens.
+  useEffect(() => {
+    if (!isOpen) return undefined;
+    const mm = gsap.matchMedia();
+    mm.add(
+      MOTION_OK,
+      () => {
+        gsap.from('[data-mobile-item]', {
+          x: -24,
+          opacity: 0,
+          duration: 0.4,
+          stagger: 0.06,
+          clearProps: 'transform,opacity',
+        });
+      },
+      mobileRef
+    );
+    return () => mm.revert();
+  }, [isOpen]);
 
   return (
-    <Box>
+    <Box ref={rootRef}>
       <Flex
-        bg={useColorModeValue('white', '#1C395A')}
-        color={useColorModeValue('gray.600', 'white')}
+        data-nav-bar
+        bg={bg}
+        color={color}
         minH={'60px'}
         py={{ base: 2 }}
         px={{ base: 4 }}
         borderBottom={1}
         borderStyle={'solid'}
-        borderColor={useColorModeValue('gray.200', 'gray.900')}
+        borderColor={borderColor}
         align={'center'}
       >
         <Flex
@@ -61,28 +145,25 @@ function Navbar(props) {
         </Flex>
         <Flex
           alignItems="center"
-          flex={{ base: 1 }}
+          flex={{ base: '0 1 auto', md: 1 }}
           justify={{ base: 'center', md: 'start' }}
         >
-          <IconButton
-            aria-label="Logo Kab"
-            isRound={true}
-            icon={
-              <Box
-                bgColor="blue.700" // Ganti dengan skema warna yang Anda inginkan
-                p={2}
-                rounded="full"
-              >
-                <Image src={Logo} alt="Logo Kab" boxSize={6} />
-              </Box>
-            }
-          />
-          <Link href="/">
+          <Link
+            as={RouterLink}
+            to="/"
+            display="flex"
+            alignItems="center"
+            _hover={{ textDecoration: 'none' }}
+          >
+            <Box bgColor="blue.700" p={2} rounded="full" flexShrink={0}>
+              <Image src={Logo} alt="Logo Kabupaten Probolinggo" boxSize={6} />
+            </Box>
             <Text
-              textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
               fontFamily="heading"
-              color={useColorModeValue('gray.600', 'white')}
+              color={color}
               fontWeight={700}
+              fontSize={{ base: 'sm', md: 'md' }}
+              whiteSpace="nowrap"
               ml={2}
             >
               Kab Probolinggo
@@ -102,9 +183,11 @@ function Navbar(props) {
           <ColorModeSwitcher />
         </Stack>
       </Flex>
-      <Collapse in={isOpen} animateOpacity>
-        <MobileNav />
-      </Collapse>
+      <Box ref={mobileRef}>
+        <Collapse in={isOpen} animateOpacity>
+          <MobileNav onNavigate={onClose} />
+        </Collapse>
+      </Box>
     </Box>
   );
 }
@@ -117,13 +200,13 @@ const DesktopNav = () => {
   return (
     <Stack direction={'row'} spacing={4} fontFamily="heading">
       {NAV_ITEMS.map(navItem => (
-        <Box key={navItem.label}>
+        <Box key={navItem.label} data-nav-item>
           <Popover trigger={'hover'} placement={'bottom-start'}>
             <PopoverTrigger>
-              <Box
-                as="a"
-                p={2}
+              <NavLink
                 href={navItem.href ?? navItem.parenHref}
+                p={2}
+                display="block"
                 fontSize={'xs'}
                 fontWeight={500}
                 color={linkColor}
@@ -133,7 +216,7 @@ const DesktopNav = () => {
                 }}
               >
                 {navItem.label}
-              </Box>
+              </NavLink>
             </PopoverTrigger>
             {navItem.children && (
               <PopoverContent
@@ -159,15 +242,16 @@ const DesktopNav = () => {
 };
 
 const DesktopSubNav = ({ label, href, subLabel }) => {
+  const hoverBg = useColorModeValue('teal.50', 'gray.900');
+
   return (
-    <Box
-      as="a"
+    <NavLink
       href={href}
       role={'group'}
       display={'block'}
       p={2}
       rounded={'md'}
-      _hover={{ bg: useColorModeValue('teal.50', 'gray.900') }}
+      _hover={{ bg: hoverBg }}
     >
       <Stack direction={'row'} align={'center'}>
         <Box>
@@ -192,11 +276,11 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
           <Icon color={'teal.400'} w={5} h={5} as={ChevronRightIcon} />
         </Flex>
       </Stack>
-    </Box>
+    </NavLink>
   );
 };
 
-const MobileNav = () => {
+const MobileNav = ({ onNavigate }) => {
   return (
     <Stack
       bg={useColorModeValue('white', 'gray.800')}
@@ -205,34 +289,43 @@ const MobileNav = () => {
       fontFamily={'heading'}
     >
       {NAV_ITEMS.map(navItem => (
-        <MobileNavItem key={navItem.label} {...navItem} />
+        <MobileNavItem
+          key={navItem.label}
+          onNavigate={onNavigate}
+          {...navItem}
+        />
       ))}
     </Stack>
   );
 };
 
-const MobileNavItem = ({ label, children, href }) => {
+const MobileNavItem = ({ label, children, href, onNavigate }) => {
   const { isOpen, onToggle } = useDisclosure();
+  const textColor = useColorModeValue('gray.600', 'gray.200');
+  const borderColor = useColorModeValue('gray.200', 'gray.700');
+
+  const labelText = (
+    <Text fontWeight={600} color={textColor}>
+      {label}
+    </Text>
+  );
 
   return (
-    <Stack spacing={4} onClick={children && onToggle}>
-      <Box
-        py={2}
-        as="a"
-        href={href ?? '#'}
-        justifyContent="space-between"
-        alignItems="center"
-        _hover={{
-          textDecoration: 'none',
-        }}
-      >
-        <Text
-          fontWeight={600}
-          color={useColorModeValue('gray.600', 'gray.200')}
+    <Stack spacing={4} data-mobile-item>
+      {children ? (
+        // Parents with sub-pages only expand/collapse; their children navigate.
+        <Flex
+          as="button"
+          type="button"
+          py={2}
+          justifyContent="space-between"
+          alignItems="center"
+          w="100%"
+          textAlign="left"
+          onClick={onToggle}
+          aria-expanded={isOpen}
         >
-          {label}
-        </Text>
-        {children && (
+          {labelText}
           <Icon
             as={ChevronDownIcon}
             transition={'all .25s ease-in-out'}
@@ -240,25 +333,45 @@ const MobileNavItem = ({ label, children, href }) => {
             w={6}
             h={6}
           />
-        )}
-      </Box>
-      <Collapse in={isOpen} animateOpacity style={{ marginTop: '0!important' }}>
-        <Stack
-          mt={2}
-          pl={4}
-          borderLeft={1}
-          borderStyle={'solid'}
-          borderColor={useColorModeValue('gray.200', 'gray.700')}
-          align={'start'}
+        </Flex>
+      ) : (
+        <NavLink
+          href={href}
+          onNavigate={onNavigate}
+          py={2}
+          display="block"
+          _hover={{ textDecoration: 'none' }}
         >
-          {children &&
-            children.map(child => (
-              <Box as="a" key={child.label} py={2} href={child.href}>
+          {labelText}
+        </NavLink>
+      )}
+      {children && (
+        <Collapse
+          in={isOpen}
+          animateOpacity
+          style={{ marginTop: '0!important' }}
+        >
+          <Stack
+            mt={2}
+            pl={4}
+            borderLeft={1}
+            borderStyle={'solid'}
+            borderColor={borderColor}
+            align={'start'}
+          >
+            {children.map(child => (
+              <NavLink
+                key={child.label}
+                href={child.href}
+                onNavigate={onNavigate}
+                py={2}
+              >
                 {child.label}
-              </Box>
+              </NavLink>
             ))}
-        </Stack>
-      </Collapse>
+          </Stack>
+        </Collapse>
+      )}
     </Stack>
   );
 };
@@ -270,19 +383,19 @@ const NAV_ITEMS = [
     children: [
       {
         label: 'Data Wilayah',
-        href: '/profil/#datawilayah',
+        href: '/profil#datawilayah',
       },
       {
         label: 'Visi Misi',
-        href: '/profil/#visimisi',
+        href: '/profil#visimisi',
       },
       {
         label: 'Logo Kabupaten',
-        href: '/profil/#logokabupaten',
+        href: '/profil#logokabupaten',
       },
       {
         label: 'Kondisi Geografis',
-        href: '/profil/#kondisigeografis',
+        href: '/profil#kondisigeografis',
       },
     ],
   },
@@ -343,7 +456,7 @@ const NAV_ITEMS = [
         label: 'Kecamatan Kraksaan',
         href: '#',
       },
-    ]
+    ],
   },
   {
     label: 'Wisata',

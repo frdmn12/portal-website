@@ -5,40 +5,31 @@ import {
   CardBody,
   Badge,
   Heading,
-  Image
 } from '@chakra-ui/react';
-import Image404 from "../assets/Image404.png"
+import CoverImage from './CoverImage';
 
-export default function CardNews({title, image,caption, date}) {
+export default function CardNews({ title, image, caption, date, ...rest }) {
   return (
     <Card
       size="md"
+      overflow="hidden"
+      w="100%"
+      h="100%"
       _hover={{
         transform: 'translateY(-5px)',
         transition: 'transform 0.3s',
       }}
-      w={"400px"}
-    //   h="100%"
-      // m={{ base: '1' }}
+      {...rest}
     >
-        <Image
-        src={image}
-        alt='ImageNews'
-        objectFit="cover"
-        // maxW="300px"
-        />
+      <CoverImage src={image} alt={title} />
       <CardHeader pb={0}>
         <Badge colorScheme="green" fontSize="xs" mb="2" fontFamily="default">
           {date}
         </Badge>
-        <Heading size={{ base: 'sm', lg: 'sm' }}>
-          {title}
-        </Heading>
+        <Heading size="sm">{title}</Heading>
       </CardHeader>
       <CardBody fontFamily="body" pb={2}>
-        <Text fontSize={{ lg: 'sm', base: 'xs' }} numberOfLine={1} >
-          {caption} 
-        </Text>
+        <Text fontSize={{ base: 'sm', lg: 'md' }}>{caption}</Text>
       </CardBody>
     </Card>
   );

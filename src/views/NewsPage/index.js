@@ -1,24 +1,19 @@
+import { Link as RouterLink } from 'react-router-dom';
 import {
   Box,
+  Container,
   Divider,
   Flex,
+  Grid,
   Heading,
-  Text,
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
-  // BreadcrumbSeparator,
-  // Grid,
-  // GridItem,
-  ButtonGroup,
   Button,
-  // Card,
-  Link,
 } from '@chakra-ui/react';
-import LatestNews from '../LandingPage/components/LatestNews';
-import CardTravel from '../../components/CardTravel';
 import CardNews from '../../components/CardNews.js';
 import SmallCardNews from '../../components/SmallCardNews';
+import SampleNewsNotice from '../../components/SampleNewsNotice';
 import {
   kesehatanNews,
   pemerintahanNews,
@@ -27,126 +22,111 @@ import {
   smallPemerintahanNews,
   smallPendidikanNews,
 } from '../../variables/general';
-// import CardNews from '../../components/CardNews';
+
+const SECTIONS = [
+  {
+    id: 'pemerintahan',
+    title: 'Pemerintahan',
+    featured: pemerintahanNews,
+    small: smallPemerintahanNews,
+  },
+  {
+    id: 'pendidikan',
+    title: 'Pendidikan',
+    featured: pendidikanNews,
+    small: smallPendidikanNews,
+  },
+  {
+    id: 'kesehatan',
+    title: 'Kesehatan',
+    featured: kesehatanNews,
+    small: smallKesehatanNews,
+  },
+];
+
+// Two featured stories plus a short list. Every card is a direct child of the
+// grid so a single stagger animation covers them all:
+//   phone    one column
+//   tablet   two columns
+//   desktop  featured | featured | list of small cards (stacked, one column)
+const NewsSection = ({ id, title, featured, small }) => (
+  <Box id={id} my={{ base: 6, lg: 10 }}>
+    <Heading size="lg" data-reveal="left">
+      {title}
+    </Heading>
+    <Divider mt={1} />
+    <Grid
+      data-stagger="up"
+      mt={5}
+      gap={5}
+      templateColumns={{
+        base: '1fr',
+        md: 'repeat(2, minmax(0, 1fr))',
+        xl: 'minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.1fr)',
+      }}
+    >
+      {featured.map(news => (
+        <Box key={news.title} gridRow={{ xl: 'span 3' }}>
+          <CardNews
+            title={news.title}
+            image={news.image}
+            date={news.date}
+            caption={news.caption}
+          />
+        </Box>
+      ))}
+      {small.map(news => (
+        <Box key={news.title}>
+          <SmallCardNews
+            title={news.title}
+            image={news.image}
+            date={news.date}
+            h="100%"
+          />
+        </Box>
+      ))}
+    </Grid>
+  </Box>
+);
 
 export default function NewsPage() {
   return (
-    <Flex direction="column" m={30}>
-      <Box display="row" fontFamily="heading">
-        <Heading>Informasi Dan Berita Daerah</Heading>
-        <Breadcrumb>
+    <Container maxW="7xl" px={{ base: 4, md: 6, lg: 8 }} py={{ base: 6, lg: 10 }}>
+      <Box fontFamily="heading">
+        <Heading size={{ base: 'lg', md: 'xl' }} data-reveal="left">
+          Informasi Dan Berita Daerah
+        </Heading>
+        <Breadcrumb mt={2} data-reveal="fade" data-delay="0.15">
           <BreadcrumbItem>
-            <BreadcrumbLink href="/">Home</BreadcrumbLink>
+            <BreadcrumbLink as={RouterLink} to="/">
+              Home
+            </BreadcrumbLink>
           </BreadcrumbItem>
 
           <BreadcrumbItem isCurrentPage>
-            <BreadcrumbLink href="/news ">Berita</BreadcrumbLink>
+            <BreadcrumbLink as={RouterLink} to="/news">
+              Berita
+            </BreadcrumbLink>
           </BreadcrumbItem>
         </Breadcrumb>
+        <SampleNewsNotice mt={3} />
       </Box>
-      <Box my={2}>
-        <ButtonGroup colorScheme="teal" display={{ lg: 'table-row' }}>
-          <Link href="#pemerintahan">
-            <Button fontFamily={'default'} m={2}>
-              Pemerintahan
-            </Button>
-          </Link>
-          <Link href="#pendidikan">
-            <Button fontFamily={'default'} m={2}>
-              Pendidikan
-            </Button>
-          </Link>
-          <Link href="#kesehatan">
-            <Button fontFamily={'default'} m={2}>
-              Kesehatan
-            </Button>
-          </Link>
-        </ButtonGroup>
-      </Box>
-      <Box my={15} id="pemerintahan">
-        <Heading size={'lg'}>Pemerintahan</Heading>
-        <Divider mt={1} />
-        <Flex gap={5} mt={5} flexWrap={{ base: 'wrap', lg: 'nowrap' }}>
-          {pemerintahanNews.map(e => {
-            return (
-              <CardNews
-                title={e.title}
-                image={e.image}
-                date={e.date}
-                caption={e.caption}
-              />
-            );
-          })}
-          <Flex
-            flexDirection={{ base: 'row', lg: 'column' }}
-            flexWrap={{ base: 'wrap', lg: 'nowrap' }}
-            gap={5}
-            justifyContent="space-between"
+      <Flex data-stagger="zoom" gap={3} wrap="wrap" my={5}>
+        {SECTIONS.map(section => (
+          <Button
+            key={section.id}
+            as={RouterLink}
+            to={`#${section.id}`}
+            colorScheme="teal"
+            fontFamily="default"
           >
-            {smallPemerintahanNews.map(e => {
-              return (
-                <SmallCardNews title={e.title} image={e.image} date={e.date} />
-              );
-            })}
-          </Flex>
-        </Flex>
-      </Box>
-      <Box my={15} id="pendidikan">
-        <Heading size={'lg'}>Pendidikan</Heading>
-        <Divider mt={1} />
-        <Flex gap={5} mt={5} flexWrap={{ base: 'wrap', lg: 'nowrap' }}>
-          {pendidikanNews.map(e => {
-            return (
-              <CardNews
-                title={e.title}
-                image={e.image}
-                date={e.date}
-                caption={e.caption}
-              />
-            );
-          })}
-          <Flex
-            flexDirection={{ base: 'row', lg: 'column' }}
-            flexWrap={{ base: 'wrap', lg: 'nowrap' }}
-            gap={5}
-            justifyContent="space-between"
-          >
-            {smallPendidikanNews.map(e => {
-              return (
-                <SmallCardNews title={e.title} image={e.image} date={e.date} />
-              );
-            })}
-          </Flex>
-        </Flex>
-      </Box>
-      <Box my={15} id="kesehatan">
-        <Heading size={'lg'}>Kesehatan</Heading>
-        <Divider mt={1} />
-        <Flex gap={5} mt={5} flexWrap={{ base: 'wrap', lg: 'nowrap' }}>
-          {kesehatanNews.map(e => {
-            return (
-              <CardNews
-                title={e.title}
-                image={e.image}
-                date={e.date}
-                caption={e.caption}
-              />
-            );
-          })}
-          <Flex
-            flexDirection={{ base: 'row', lg: 'column' }}
-            flexWrap={{ base: 'wrap', lg: 'nowrap' }}
-            gap={5}
-            justifyContent="space-between"
-          >
-            {smallKesehatanNews.map(e => {
-              return (
-                <SmallCardNews title={e.title} image={e.image} date={e.date} />
-              );
-            })}
-          </Flex>
-        </Flex>
-      </Box>
-    </Flex>
+            {section.title}
+          </Button>
+        ))}
+      </Flex>
+      {SECTIONS.map(section => (
+        <NewsSection key={section.id} {...section} />
+      ))}
+    </Container>
   );
 }

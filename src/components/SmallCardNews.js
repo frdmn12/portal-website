@@ -1,48 +1,51 @@
 import {
-  Box,
   Card,
-  Image,
-  Text,
   Stack,
   CardBody,
-  // CardHeader,
   Heading,
-  CardFooter,
-  Button,
   Badge,
+  Box,
 } from '@chakra-ui/react';
+import CoverImage from './CoverImage';
 
-const SmallCardNews = ({ image, title, date }) => {
+const SmallCardNews = ({ image, title, date, ...rest }) => {
   return (
-    <Box>
-      <Card
-        direction={{ base: 'column', sm: 'row' }}
-        overflow="hidden"
-        variant="outline"
-        _hover={{
-          transform: 'translateY(-5px)',
-          transition: 'transform 0.3s',
-        }}
-        size={{ base: "sm" }}
+    <Card
+      direction={{ base: 'column', sm: 'row' }}
+      overflow="hidden"
+      variant="outline"
+      w="100%"
+      _hover={{
+        transform: 'translateY(-5px)',
+        transition: 'transform 0.3s',
+      }}
+      size="sm"
+      {...rest}
+    >
+      <Box
+        flexShrink={0}
+        w={{ base: '100%', sm: '200px', xl: '150px' }}
+        // On the row layout the image fills the card's full height.
+        alignSelf={{ sm: 'stretch' }}
       >
-        <Image
-          objectFit="cover"
-          maxW={{ base: '100%', sm: '200px', lg : "250px" }}
+        <CoverImage
           src={image}
-          alt="Image News"
+          alt={title}
+          ratio={{ base: 16 / 9, sm: 4 / 3 }}
+          h="100%"
         />
-
-        <Stack>
-          <CardBody>
-            <Heading size={{ base: "sm",lg : "md" }}>{title}</Heading>
-
-            <Badge fontFamily="default" size={{ base: "sm" }} my={2}>
-              <Text py="2">{date}</Text>
-            </Badge>
-          </CardBody>
-        </Stack>
-      </Card>
-    </Box>
+      </Box>
+      <Stack justify="center" minW={0}>
+        <CardBody>
+          <Heading size="sm" noOfLines={3}>
+            {title}
+          </Heading>
+          <Badge fontFamily="default" mt={3} px={2} py={1}>
+            {date}
+          </Badge>
+        </CardBody>
+      </Stack>
+    </Card>
   );
 };
 
