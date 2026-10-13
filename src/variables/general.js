@@ -5,12 +5,14 @@ import sup4 from '../assets/supports/image 8.png';
 import sup5 from '../assets/supports/image 9.png';
 import sup6 from '../assets/supports/image 10.png';
 import sup7 from '../assets/supports/image 11.png';
+import argopuroImage from '../assets/wisata/gunung-argopuro.jpg';
+import candiJabungImage from '../assets/wisata/candi-jabung.webp';
+import ronggoJaluImage from '../assets/wisata/danau-ronggo-jalu.jpg';
 
 export const TravelPlace = [
   {
     title: 'Gunung Argopuro',
-    image:
-      'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F3.bp.blogspot.com%2F-_46hK0MskO4%2FWkmYYHXvLuI%2FAAAAAAAAHZQ%2F2h_n_VNQ0rYqfjF1CocsmaCnPdW4xeYYACLcBGAs%2Fw1200-h630-p-k-no-nu%2Fgunung%252Bargopuro%252Bdanau%252Btaman%252Bhidup.jpg&f=1&nofb=1&ipt=7d74069ba6ba5418bc6cae6e86757f7bf7a6621a1531fad66e09ee4caac6df75&ipo=images',
+    image: argopuroImage,
     location: 'https://goo.gl/maps/3nr9Dm5YLRDCja35A',
   },
   {
@@ -21,8 +23,7 @@ export const TravelPlace = [
   },
   {
     title: 'Candi Jabung',
-    image:
-      'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fkebudayaan.kemdikbud.go.id%2Fbpcbjatim%2Fwp-content%2Fuploads%2Fsites%2F33%2F2020%2F12%2FDSCN5303.jpg&f=1&nofb=1&ipt=ca28585797cd6c8a208a2d3278112486e5cc1dda94a594f911b4ff39eaa73115&ipo=images',
+    image: candiJabungImage,
     location: 'https://goo.gl/maps/LYKXvTtBXHLPhmdG6',
   },
   {
@@ -45,8 +46,7 @@ export const TravelPlace = [
   },
   {
     title: 'Danau Ronggo Jalu',
-    image:
-      'https://tempatwisataindonesia.id/wp-content/uploads/2016/10/Danau-Ronggojalu.png',
+    image: ronggoJaluImage,
     location: 'https://goo.gl/maps/ZkwUFhkh2SoHtiXS9',
   },
   {
