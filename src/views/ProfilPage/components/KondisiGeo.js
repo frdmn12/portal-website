@@ -2,8 +2,13 @@ import { Flex, ListItem, OrderedList, Text, Box } from '@chakra-ui/react';
 
 const KondisiGeo = () => {
   return (
-    <Flex flexDirection="column" fontFamily="heading" gap={4}>
-      <Text fontWeight="600" fontSize="35px">
+    <Flex
+      data-stagger="up"
+      flexDirection="column"
+      fontFamily="heading"
+      gap={4}
+    >
+      <Text fontWeight="600" fontSize={{ base: '26px', md: '35px' }}>
         Kondisi Geografis
       </Text>
       <Text>

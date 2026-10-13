@@ -94,6 +94,35 @@ export const institutionSupports = [
   },
 ];
 
+// "Berita Terbaru" on the landing page. `image` is optional: a card without one
+// is rendered text-only.
+export const latestNews = [
+  {
+    title:
+      'Pemkab-KPN Ikuti Sosialisasi Program PTSL Tahun 2022 Secara Virtual',
+    image:
+      'https://probolinggokab.go.id/wp-content/uploads/2023/08/IMG-20230812-WA0100-1200x630.jpg',
+    date: '12 / 08 / 2023',
+    caption:
+      'Ratusan Kepala Sekolah dan guru dari jenjang PAUD, SD dan SMP di Kabupaten Probolinggo mengikuti sosialisasi akuntabilitas pengelolaan dana Bantuan Operasional Sekolah (BOS) di Auditorium Madakaripura, Kantor Bupati Probolinggo, Sabtu (12/8/2023).',
+    category: 'Kesehatan',
+  },
+  {
+    title: 'Ribuan ASN Kerja Bhakti Bersih-Bersih Stadion Gelora Merdeka Kraksaan',
+    date: '12 / 08 / 2023',
+    caption:
+      'Ribuan Aparatur Sipil Negara (ASN) dari Organisasi Perangkat Daerah (OPD) dan Kecamatan bersama dengan anggota TNI, Pramuka dan Karang Taruna melakukan kerja bakti bersih-bersih Stadion Gelora Merdeka Kraksaan, Sabtu (12/8/2023).',
+    category: 'Kemasyarakatan',
+  },
+  {
+    title: 'Teken Nota Kesepakatan KUA-PPAS P-APBD TA 2023',
+    date: '11 / 08 / 2023',
+    caption:
+      'Setelah melalui tahapan pembahasan oleh Tim Anggaran Pemerintah Daerah (TAPD) dan Badan Anggaran (Banggar) DPRD Kabupaten Probolinggo, Jum’at (11/8/2023) dilakukan penandatanganan (teken) Nota Kesepakatan Bersama antara Pemkab Probolinggo dengan DPRD Kabupaten Probolinggo Tentang Kebijakan Umum Anggaran (KUA) dan Prioritas serta Plafon Anggaran Sementara (PPAS) Perubahan Anggaran Pendapatan dan Belanja Daerah (P-APBD) Kabupaten Probolinggo Tahun Anggaran 2023.',
+    category: 'Kesehatan',
+  },
+];
+
 export const pemerintahanNews = [
   {
     title:

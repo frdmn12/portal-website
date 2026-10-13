@@ -13,19 +13,31 @@ import LogoDaerah from '../../../assets/Logo_Kabupaten_Probolinggo_-_Seal_of_Pro
 const LogoKabupaten = () => {
   return (
     <Flex fontFamily="heading" flexDirection="column" gap={4}>
-      <Text fontWeight="600" fontSize="35px">
+      <Text
+        data-reveal="up"
+        fontWeight="600"
+        fontSize={{ base: '26px', md: '35px' }}
+      >
         Logo Kabupaten
       </Text>
       <Box display="flex" justifyContent="center">
         <Image
+          data-reveal="zoom"
           src={LogoDaerah}
+          alt="Lambang Kabupaten Probolinggo"
           boxSize={{ base: '150px', md: '250px', lg: '300px' }}
           fit={'contain'}
         />
       </Box>
       <Box>
-        <Text fontSize="25px">Makna Lambang Kabupaten Probolinggo</Text>
-        <UnorderedList>
+        <Text
+          data-reveal="up"
+          fontSize={{ base: '20px', md: '25px' }}
+          mb={2}
+        >
+          Makna Lambang Kabupaten Probolinggo
+        </Text>
+        <UnorderedList data-stagger="up" spacing={2}>
           <ListItem>
             Bintang berwarna kuning merupakan pertanda KETUHANAN YANG MAHA ESA.
           </ListItem>
@@ -76,8 +88,14 @@ const LogoKabupaten = () => {
         </UnorderedList>
       </Box>
       <Box>
-        <Text fontSize="25px">Makna Warna-warna Yang Digunakan :</Text>
-        <UnorderedList>
+        <Text
+          data-reveal="up"
+          fontSize={{ base: '20px', md: '25px' }}
+          mb={2}
+        >
+          Makna Warna-warna Yang Digunakan :
+        </Text>
+        <UnorderedList data-stagger="up">
           <ListItem>
             Warna Kuning berarti : Keagungan, Keluhuran, Kemuliaan.
           </ListItem>

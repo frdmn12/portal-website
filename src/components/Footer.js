@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import {
   Box,
   chakra,
@@ -18,6 +18,7 @@ import { BiMailSend } from 'react-icons/bi';
 // import { ReactComponent as LogoSvg } from '../assets/LogoDaerah.svg';
 import LogoDaerah from '../assets/Logo_Daerah.png';
 import LogoDaerahKabProb from '../assets/Logo_Kabupaten_Probolinggo_-_Seal_of_Probolinggo_Regency.png';
+import useReveal from '../animations/useReveal';
 
 const Logo = props => {
   return (
@@ -66,20 +67,31 @@ const ListHeader = ({ children }) => {
 };
 
 export default function Footer() {
+  const ref = useRef(null);
+  useReveal(ref);
+
   return (
     <Box
+      ref={ref}
       bg={useColorModeValue('gray.100', '#1C395A')}
       color={useColorModeValue('gray.700', 'gray.200')}
       fontFamily={'heading'}
+      overflowX="clip"
     >
-      <Container as={Stack} maxW={'6xl'} py={10}>
+      <Container as={Stack} maxW={'6xl'} py={10} px={{ base: 4, md: 6 }}>
         <SimpleGrid
-          templateColumns={{ sm: '1fr 1fr', md: '1fr 2fr 1fr 1fr 2fr' }}
-          spacing={4}
+          data-stagger="up"
+          templateColumns={{
+            base: '1fr',
+            sm: '1fr 1fr',
+            md: '1fr 2fr 1fr 1fr 2fr',
+          }}
+          spacing={{ base: 8, md: 4 }}
         >
           <Box>
             <Image
               src={LogoDaerahKabProb}
+              alt="Lambang Kabupaten Probolinggo"
               boxSize={{ base: '100px', md: '200px' }}
               fit={'contain'}
             />
