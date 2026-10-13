@@ -13,26 +13,10 @@ import {
   Image,
   Link,
 } from '@chakra-ui/react';
-import { FaInstagram, FaTwitter, FaYoutube, FaFacebook } from 'react-icons/fa';
+import { FaTwitter, FaYoutube, FaFacebook } from 'react-icons/fa';
 import { BiMailSend } from 'react-icons/bi';
-// import { ReactComponent as LogoSvg } from '../assets/LogoDaerah.svg';
-import LogoDaerah from '../assets/Logo_Daerah.png';
 import LogoDaerahKabProb from '../assets/Logo_Kabupaten_Probolinggo_-_Seal_of_Probolinggo_Regency.png';
 import useReveal from '../animations/useReveal';
-
-const Logo = props => {
-  return (
-    <svg
-      height={32}
-      viewBox="0 0 120 30"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
-      {/* SVG path data */}
-      {/* <LogoSvg /> */}
-    </svg>
-  );
-};
 
 const SocialButton = ({ children, label, href }) => {
   return (

@@ -1,8 +1,6 @@
 import {
-    Badge,
   Box,
   Flex,
-  Highlight,
   Image,
   ListItem,
   Text,

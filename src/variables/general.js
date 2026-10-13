@@ -1,4 +1,3 @@
-import supports from '../assets/supports';
 import sup1 from '../assets/supports/image 5.png';
 import sup2 from '../assets/supports/image 6.png';
 import sup3 from '../assets/supports/image 7.png';
